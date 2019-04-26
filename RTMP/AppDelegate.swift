@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
-        let navigationController = UINavigationController(rootViewController: VideoListViewController())
+        let navigationController = UINavigationController(rootViewController: MenuViewController())
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true

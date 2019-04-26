@@ -9,6 +9,7 @@
 import UIKit
 import PLPlayerKit
 import SnapKit
+import Kingfisher
 
 class PlayViewController: PlayBaseViewController, PLPlayerDelegate {
     var player: PLPlayer!
@@ -31,19 +32,12 @@ class PlayViewController: PlayBaseViewController, PLPlayerDelegate {
         closeButton.setImage(UIImage(named: "close"), for: .normal)
         closeButton.addTarget(self, action: #selector(clickCloseButton), for: .touchUpInside)
         closeButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        closeButton.layer.cornerRadius = 22.0
-        thumbImageView = UIImageView(image: UIImage(named: "icon-1024"))
+        closeButton.layer.cornerRadius = 22.0    
+        thumbImageView = UIImageView()
+        #warning("改变占位图片")
+        thumbImageView.kf.setImage(with: URL(string: "http://imgsrc.baidu.com/forum/pic/item/82025aafa40f4bfb0d535a400f4f78f0f7361827.jpg"), placeholder: UIImage(named: "82025aafa40f4bfb0d535a400f4f78f0f7361827"))
         thumbImageView.clipsToBounds = true
         thumbImageView.contentMode = .scaleAspectFill
-        /*
-         if (self.thumbImageURL) {
-         [self.thumbImageView sd_setImageWithURL:self.thumbImageURL placeholderImage:self.thumbImageView.image];
-         }
-         if (self.thumbImage) {
-         self.thumbImageView.image = self.thumbImage;
-         }
-         */
-        
         view.addSubview(thumbImageView)
         thumbImageView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -74,9 +68,9 @@ class PlayViewController: PlayBaseViewController, PLPlayerDelegate {
             make.edges.equalToSuperview()
         }
         
+        setupPlayer()
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(singleTapAction(gesture:)))
         view.addGestureRecognizer(singleTap)
-        setupPlayer()
         enableGesture = true
         setEnableGesture(enable: true)
         
@@ -97,6 +91,9 @@ class PlayViewController: PlayBaseViewController, PLPlayerDelegate {
         }
         option.setOptionValue(format.rawValue, forKey: PLPlayerOptionKeyVideoPreferFormat)
         option.setOptionValue(kPLLogNone.rawValue, forKey: PLPlayerOptionKeyLogLevel)
+        if url == nil {
+            fatalError("setup player error with option value")
+        }
         player = PLPlayer(url: url, option: option)
         guard let playerView = player.playerView else { return }
         view.insertSubview(playerView, at: 0)
@@ -153,9 +150,6 @@ class PlayViewController: PlayBaseViewController, PLPlayerDelegate {
     
     func player(_ player: PLPlayer, stoppedWithError error: Error?) {
         hideWaiting()
-//        guard let info = error.userInfo["NSLocalizedDescription"] as? String else {
-//            return
-//        }
         print("发生错误被迫停止")
     }
     

@@ -17,6 +17,7 @@
 		58C5AE6622730E780095BB4D /* PlayLongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5AE6322730E780095BB4D /* PlayLongViewController.swift */; };
 		58C5AE6722730E780095BB4D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5AE6422730E780095BB4D /* PlayViewController.swift */; };
 		58C5AE6822730E780095BB4D /* PLPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5AE6522730E780095BB4D /* PLPlayerView.swift */; };
+		58C5AE76227360950095BB4D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5AE75227360950095BB4D /* MenuViewController.swift */; };
 		58ED92262270A51500A64A4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ED92252270A51500A64A4C /* AppDelegate.swift */; };
 		58ED92282270A51500A64A4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ED92272270A51500A64A4C /* ViewController.swift */; };
 		58ED922B2270A51500A64A4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58ED92292270A51500A64A4C /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		58C5AE6322730E780095BB4D /* PlayLongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayLongViewController.swift; sourceTree = "<group>"; };
 		58C5AE6422730E780095BB4D /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		58C5AE6522730E780095BB4D /* PLPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLPlayerView.swift; sourceTree = "<group>"; };
+		58C5AE75227360950095BB4D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		58ED92222270A51500A64A4C /* RTMP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTMP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58ED92252270A51500A64A4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58ED92272270A51500A64A4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				58C5AE0722715E5E0095BB4D /* PlayBaseViewController.swift */,
 				58C5AE252272D50F0095BB4D /* VideoLIstViewController.swift */,
 				58C5AE272272D5B60095BB4D /* MediaTableViewCell.swift */,
+				58C5AE75227360950095BB4D /* MenuViewController.swift */,
 				58C5AE1B227188460095BB4D /* PLMediaInfo.swift */,
 				58ED92292270A51500A64A4C /* Main.storyboard */,
 				58ED922C2270A51600A64A4C /* Assets.xcassets */,
@@ -136,7 +139,6 @@
 				58ED921F2270A51500A64A4C /* Frameworks */,
 				58ED92202270A51500A64A4C /* Resources */,
 				6488F2D83D6914CB6B489899 /* [CP] Embed Pods Frameworks */,
-				6DEBED0AED2676E8EA85447B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,51 +229,21 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RTMP/Pods-RTMP-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
-				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MMMaterialDesignSpinner/MMMaterialDesignSpinner.framework",
-				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${PODS_ROOT}/PLPlayerKit/Pod/Library-Universal/PLPlayerKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMMaterialDesignSpinner.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PLPlayerKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RTMP/Pods-RTMP-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6DEBED0AED2676E8EA85447B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RTMP/Pods-RTMP-resources.sh",
-				"${PODS_ROOT}/WeiboSDK/libWeiboSDK/WeiboSDK.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RTMP/Pods-RTMP-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -288,6 +260,7 @@
 				58C5AE1C227188460095BB4D /* PLMediaInfo.swift in Sources */,
 				58ED92262270A51500A64A4C /* AppDelegate.swift in Sources */,
 				58C5AE6622730E780095BB4D /* PlayLongViewController.swift in Sources */,
+				58C5AE76227360950095BB4D /* MenuViewController.swift in Sources */,
 				58C5AE6722730E780095BB4D /* PlayViewController.swift in Sources */,
 				58C5AE2422721AD20095BB4D /* NSObject+Auth.m in Sources */,
 				58C5AE0822715E5E0095BB4D /* PlayBaseViewController.swift in Sources */,
@@ -442,7 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8D33L22R8;
 				INFOPLIST_FILE = RTMP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8D33L22R8;
 				INFOPLIST_FILE = RTMP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

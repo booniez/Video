@@ -37,17 +37,20 @@ class VideoListViewController: UIViewController {
     }
     
     private func configureUI() {
-        tableView = UITableView(frame: CGRect.zero, style: .grouped)
+        tableView = UITableView()
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
+        self.automaticallyAdjustsScrollViewInsets = false
         tableView.separatorColor = .clear
         tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 44.0
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(MediaTableViewCell.self, forCellReuseIdentifier: "MediaTableViewCell")
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.top.left.bottom.right.equalToSuperview()
+            make.top.equalTo(topLayoutGuide.snp.bottom)
+            make.left.bottom.right.equalToSuperview()
         }
         
     }
@@ -102,7 +105,6 @@ extension VideoListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none        
         cell.delegate = self
         cell.media = mediaArray?[indexPath.row]
-//        cell.playerView.player = nil
         return cell
     }
     
@@ -112,6 +114,10 @@ extension VideoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

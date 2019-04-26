@@ -118,12 +118,6 @@ class PLPlayerView: UIView, UIGestureRecognizerDelegate, PLControlViewDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .black
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(singleTap(gesture:)))
-        addGestureRecognizer(tapGesture)
-        
-        panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture(panGesture:)))
-        addGestureRecognizer(panGesture)
-        panGesture.delegate = self
         if isIphoneX {
             edgeSpace = 20
         } else {
@@ -136,9 +130,15 @@ class PLPlayerView: UIView, UIGestureRecognizerDelegate, PLControlViewDelegate {
         hideBottomProgressView()
         bottomBarView.backgroundColor = UIColor.init(white: 0.0, alpha: 0.2)
         topBarView.backgroundColor = UIColor.init(white: 0.0, alpha: 0.2)
-        
         deviceOrientation = .unknown
         transformWithOrientation(.portrait)
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(singleTap(gesture:)))
+        addGestureRecognizer(tapGesture)
+        
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture(panGesture:)))
+        panGesture.delegate = self
+
     }
     
     deinit {
@@ -155,10 +155,10 @@ class PLPlayerView: UIView, UIGestureRecognizerDelegate, PLControlViewDelegate {
             setupPlayer()
         }
         isStop = false
-        delegate?.playerViewWillPlay(playerView: self)
         addFullStreenNotify()
         addTimer()
         resetButton(true)
+        delegate?.playerViewWillPlay(playerView: self)
         if player.status == .statusReady || player.status == .statusOpen || player.status == .statusCaching || player.status == .statusPlaying || player.status == .statusPreparing || player.status == .statusUnknow || player.status == .statusStopped {
             player.play()
         }
@@ -182,8 +182,8 @@ class PLPlayerView: UIView, UIGestureRecognizerDelegate, PLControlViewDelegate {
     }
     
     public func resume() {
-        delegate?.playerViewWillPlay(playerView: self)
         player.resume()
+        delegate?.playerViewWillPlay(playerView: self)
         resetButton(true)
     }
     
@@ -282,7 +282,6 @@ extension PLPlayerView {
     }
     
     private func initOtherUI() {
-//        self.gestureRecognizerShouldBegin(<#T##gestureRecognizer: UIGestureRecognizer##UIGestureRecognizer#>)
         thumbImageView = UIImageView()
         thumbImageView.contentMode = .scaleAspectFill
         clipsToBounds = true
@@ -493,20 +492,13 @@ extension PLPlayerView {
     func setMedia(media: PLMediaInfo) {
         self.media = media
         titleLabel.text = media.detailDesc ?? ""
-//        setupPlayer()
         isNeedSetupPlayer = true
     }
     
     func setupPlayer() {
         playerOption = PLPlayerOption.default()
         var format = kPLPLAY_FORMAT_UnKnown
-//        let media = PLMediaInfo()
-//        media.detailDesc = "视频"
-        titleLabel.text = "感动中国"
-//        let urlString = "rtmp://ossrs.net/live/123456"
-        let urlString = media.videoURL ?? "" //"http://demo-videos.qnsdk.com/movies/apple.mp4"
-        thumbImageView.isHidden = false
-//        guard let urlString = media.videoURL else { return }
+        let urlString = media.videoURL ?? ""
         if urlString.hasSuffix("mp4") {
             format = kPLPLAY_FORMAT_MP4
         } else if urlString.hasSuffix(".mp3") {
@@ -549,7 +541,9 @@ extension PLPlayerView {
         
         let isFirst = UIDeviceOrientation.unknown == self.deviceOrientation
         if or == UIDeviceOrientation.portrait {
-            removeGestureRecognizer(panGesture)
+            if (gestureRecognizers?.contains(panGesture) ?? false) {
+                removeGestureRecognizer(panGesture)
+            }
             snapshotButton.isHidden = true
             lockBtn.isHidden = true
             playButton.snp.remakeConstraints { (make) in
@@ -635,11 +629,6 @@ extension PLPlayerView {
     private func isFullScreen() -> Bool {
         return UIDeviceOrientation.portrait != self.deviceOrientation
     }
-}
-
-// MARK: - 避免 pan 手势将 slider 手势给屏蔽掉
-extension PLPlayerView {
-    
 }
 
 extension PLPlayerView {
@@ -846,10 +835,10 @@ extension PLPlayerView: PLPlayerDelegate {
         if state == .statusPlaying || state == .statusPaused || state == .statusStopped || state == .statusError || state == .statusUnknow || state == .statusCompleted {
             hideFullLoading()
         } else if state == .statusPreparing || state == .statusReady || state == .statusCaching {
-            showFullLoading()
+//            showFullLoading()
             centerPauseButton.isHidden = true
         } else if state == .stateAutoReconnecting {
-            showFullLoading()
+//            showFullLoading()
             centerPauseButton.isHidden = true
         }
         
@@ -894,13 +883,11 @@ extension PLPlayerView: PLPlayerDelegate {
     }
     
     func player(_ player: PLPlayer, loadedTimeRange timeRange: CMTime) {
-        /*
-         float startSeconds = 0;
-         float durationSeconds = CMTimeGetSeconds(timeRange);
-         CGFloat totalDuration = CMTimeGetSeconds(self.player.totalDuration);
-         self.bufferingView.progress = (durationSeconds - startSeconds) / totalDuration;
-         self.bottomBufferingProgressView.progress = self.bufferingView.progress;
-         */
+        let startSeconds: Double = 0.0
+        let durationSeconds = timeRange.seconds
+        let totalDuration = player.totalDuration.seconds
+        bufferingView.progress = Float((durationSeconds - startSeconds) / totalDuration)
+        bottomBufferingProgressView.progress = bufferingView.progress
     }
 }
 

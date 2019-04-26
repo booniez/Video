@@ -30,11 +30,7 @@ class MediaTableViewCell: UITableViewCell {
             nameLabel.text = model.endUser
             detailDescLabel.text = model.detailDesc
             headerImageView.image = UIImage(named: model.headerImg ?? "")
-//            playerView.media = model
-            playerView.setMedia(media: model)
-            if model.endUser == "0" {
-                print("第一")
-            }
+            playerView.media = model
         }
     }
     
@@ -47,7 +43,6 @@ class MediaTableViewCell: UITableViewCell {
     }
     
     public func play() {
-//        print("即将播放\(media?.endUser)")
         playerView.play()
     }
     
@@ -56,8 +51,8 @@ class MediaTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
         stop()
+        super.prepareForReuse()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -94,13 +89,13 @@ class MediaTableViewCell: UITableViewCell {
         
         playerBgView.snp.makeConstraints { (make) in
             make.height.equalTo(200)
-            make.top.left.right.bottom.equalToSuperview()
+            make.top.left.right.equalToSuperview()
         }
         
         headerImageView.snp.makeConstraints { (make) in
             make.top.equalTo(self.playerBgView.snp.bottom).offset(5)
             make.left.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-5)
             make.size.equalTo(CGSize(width: 40.0, height: 40.0))
         }
         
@@ -138,34 +133,34 @@ class MediaTableViewCell: UITableViewCell {
 
 extension MediaTableViewCell: PLPlayerViewDelegate {
     func playerViewEnterFullScreen(playerView: PLPlayerView) {
-//        guard let window = UIApplication.shared.delegate?.window, let superView = window?.rootViewController?.view else { return }
-//        self.playerView.removeFromSuperview()
-//        superView.addSubview(self.playerView)
-//        self.playerView.snp.remakeConstraints { (make) in
-//            make.width.equalTo(superView.snp.height)
-//            make.height.equalTo(superView.snp.width)
-//            make.center.equalToSuperview()
-//        }
-//        superView.setNeedsUpdateConstraints()
-//        superView.updateConstraintsIfNeeded()
-//        UIView.animate(withDuration: 0.25) {
-//            superView.layoutIfNeeded()
-//        }
+        guard let window = UIApplication.shared.delegate?.window, let superView = window?.rootViewController?.view else { return }
+        self.playerView.removeFromSuperview()
+        superView.addSubview(self.playerView)
+        self.playerView.snp.remakeConstraints { (make) in
+            make.width.equalTo(superView.snp.height)
+            make.height.equalTo(superView.snp.width)
+            make.center.equalToSuperview()
+        }
+        superView.setNeedsUpdateConstraints()
+        superView.updateConstraintsIfNeeded()
+        UIView.animate(withDuration: 0.25) {
+            superView.layoutIfNeeded()
+        }
         delegate?.tableViewCellEnterFullScreen(cell: self)
     }
     
     func playerViewExitFullScreen(playerView: PLPlayerView) {
-//        self.playerView.removeFromSuperview()
-//        playerBgView.addSubview(self.playerView)
-//        self.playerView.snp.makeConstraints { (make) in
-//            make.edges.equalToSuperview()
-//        }
-//        setNeedsUpdateConstraints()
-//        updateConstraintsIfNeeded()
-//        UIView.animate(withDuration: 0.25) {
-//            self.layoutIfNeeded()
-//        }
-//        delegate?.tableViewCellExitFullScreen(cell: self)
+        self.playerView.removeFromSuperview()
+        playerBgView.addSubview(self.playerView)
+        self.playerView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        setNeedsUpdateConstraints()
+        updateConstraintsIfNeeded()
+        UIView.animate(withDuration: 0.25) {
+            self.layoutIfNeeded()
+        }
+        delegate?.tableViewCellExitFullScreen(cell: self)
     }
     
     func playerViewWillPlay(playerView: PLPlayerView) {

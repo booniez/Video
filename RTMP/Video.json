@@ -10,7 +10,8 @@
                 "putTime": 15208361307083078,
                 "mimeType": "video/mp4",
                 "type": 0,
-                "endUser": "0"
+                "endUser": "小爱同学",
+                "headerImg": "avatar_large_zero"
             },
             {
                 "videoURL": "http://demo-videos.qnsdk.com/movies/apple.mp4",
@@ -19,7 +20,8 @@
                 "putTime": 15211044265892430,
                 "mimeType": "video/mp4",
                 "type": 0,
-                "endUser": "1"
+                "endUser": "小爱同学",
+                "headerImg": "avatar_large_zero"
             },
             {
                 "videoURL": "http://demo-videos.qnsdk.com/movies/blur.mp4",
@@ -28,7 +30,8 @@
                 "putTime": 15445021458197322,
                 "mimeType": "video/mp4",
                 "type": 0,
-                "endUser": "2"
+                "endUser": "小爱同学",
+                "headerImg": "avatar_large_zero"
             },
             {
                 "videoURL": "http://demo-videos.qnsdk.com/movies/moon.mp4",
@@ -37,7 +40,8 @@
                 "putTime": 15208336261261425,
                 "mimeType": "video/mp4",
                 "type": 0,
-                "endUser": "3"
+                "endUser": "小爱同学",
+                "headerImg": "avatar_large_zero"
             },
             {
                 "videoURL": "http://demo-videos.qnsdk.com/movies/qiniu.mp4",
@@ -46,7 +50,8 @@
                 "putTime": 15203474482177600,
                 "mimeType": "video/mp4",
                 "type": 0,
-                "endUser": "4"
+                "endUser": "小爱同学",
+                "headerImg": "avatar_large_zero"
             },
             {
                 "videoURL": "http://demo-videos.qnsdk.com/movies/snowday.mp4",
@@ -55,7 +60,8 @@
                 "putTime": 15208355944118985,
                 "mimeType": "video/mp4",
                 "type": 0,
-                "endUser": "5"
+                "endUser": "小爱同学",
+                "headerImg": "avatar_large_zero"
             }
         ]
     }
