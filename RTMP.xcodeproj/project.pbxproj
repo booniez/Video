@@ -14,12 +14,10 @@
 		58C5AE262272D50F0095BB4D /* VideoLIstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5AE252272D50F0095BB4D /* VideoLIstViewController.swift */; };
 		58C5AE282272D5B60095BB4D /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5AE272272D5B60095BB4D /* MediaTableViewCell.swift */; };
 		58C5AE2C2272E3880095BB4D /* Video.json in Resources */ = {isa = PBXBuildFile; fileRef = 58C5AE2B2272E3880095BB4D /* Video.json */; };
-		58C5AE6622730E780095BB4D /* PlayLongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5AE6322730E780095BB4D /* PlayLongViewController.swift */; };
 		58C5AE6722730E780095BB4D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5AE6422730E780095BB4D /* PlayViewController.swift */; };
 		58C5AE6822730E780095BB4D /* PLPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5AE6522730E780095BB4D /* PLPlayerView.swift */; };
 		58C5AE76227360950095BB4D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C5AE75227360950095BB4D /* MenuViewController.swift */; };
 		58ED92262270A51500A64A4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ED92252270A51500A64A4C /* AppDelegate.swift */; };
-		58ED92282270A51500A64A4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ED92272270A51500A64A4C /* ViewController.swift */; };
 		58ED922B2270A51500A64A4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58ED92292270A51500A64A4C /* Main.storyboard */; };
 		58ED922D2270A51600A64A4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58ED922C2270A51600A64A4C /* Assets.xcassets */; };
 		58ED92302270A51600A64A4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58ED922E2270A51600A64A4C /* LaunchScreen.storyboard */; };
@@ -37,13 +35,11 @@
 		58C5AE252272D50F0095BB4D /* VideoLIstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLIstViewController.swift; sourceTree = "<group>"; };
 		58C5AE272272D5B60095BB4D /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		58C5AE2B2272E3880095BB4D /* Video.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Video.json; sourceTree = "<group>"; };
-		58C5AE6322730E780095BB4D /* PlayLongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayLongViewController.swift; sourceTree = "<group>"; };
 		58C5AE6422730E780095BB4D /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		58C5AE6522730E780095BB4D /* PLPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLPlayerView.swift; sourceTree = "<group>"; };
 		58C5AE75227360950095BB4D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		58ED92222270A51500A64A4C /* RTMP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTMP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58ED92252270A51500A64A4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		58ED92272270A51500A64A4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		58ED922A2270A51500A64A4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58ED922C2270A51600A64A4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58ED922F2270A51600A64A4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,7 +82,6 @@
 		58ED92242270A51500A64A4C /* RTMP */ = {
 			isa = PBXGroup;
 			children = (
-				58C5AE6322730E780095BB4D /* PlayLongViewController.swift */,
 				58C5AE6422730E780095BB4D /* PlayViewController.swift */,
 				58C5AE6522730E780095BB4D /* PLPlayerView.swift */,
 				58C5AE2B2272E3880095BB4D /* Video.json */,
@@ -95,7 +90,6 @@
 				58C5AE2322721AD20095BB4D /* NSObject+Auth.h */,
 				58C5AE2222721AD20095BB4D /* NSObject+Auth.m */,
 				58ED92252270A51500A64A4C /* AppDelegate.swift */,
-				58ED92272270A51500A64A4C /* ViewController.swift */,
 				58C5AE0722715E5E0095BB4D /* PlayBaseViewController.swift */,
 				58C5AE252272D50F0095BB4D /* VideoLIstViewController.swift */,
 				58C5AE272272D5B60095BB4D /* MediaTableViewCell.swift */,
@@ -254,12 +248,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				58C5AE262272D50F0095BB4D /* VideoLIstViewController.swift in Sources */,
-				58ED92282270A51500A64A4C /* ViewController.swift in Sources */,
 				58C5AE212271BD590095BB4D /* UIButton+Animate.m in Sources */,
 				58C5AE6822730E780095BB4D /* PLPlayerView.swift in Sources */,
 				58C5AE1C227188460095BB4D /* PLMediaInfo.swift in Sources */,
 				58ED92262270A51500A64A4C /* AppDelegate.swift in Sources */,
-				58C5AE6622730E780095BB4D /* PlayLongViewController.swift in Sources */,
 				58C5AE76227360950095BB4D /* MenuViewController.swift in Sources */,
 				58C5AE6722730E780095BB4D /* PlayViewController.swift in Sources */,
 				58C5AE2422721AD20095BB4D /* NSObject+Auth.m in Sources */,
