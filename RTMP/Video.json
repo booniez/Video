@@ -1,0 +1,62 @@
+{
+    "status": 200,
+    "data": {
+        "total": 2,
+        "rows": [
+            {
+                "videoURL": "http://demo-videos.qnsdk.com/movies/Sunset.mp4",
+                "hash": "lnHdafF4l4IkiWYxERfSN9qlX6C4",
+                "fsize": 8841876,
+                "putTime": 15208361307083078,
+                "mimeType": "video/mp4",
+                "type": 0,
+                "endUser": "0"
+            },
+            {
+                "videoURL": "http://demo-videos.qnsdk.com/movies/apple.mp4",
+                "hash": "lqm68Y4DEObT8AmAwBVUEsNxPoCQ",
+                "fsize": 44593355,
+                "putTime": 15211044265892430,
+                "mimeType": "video/mp4",
+                "type": 0,
+                "endUser": "1"
+            },
+            {
+                "videoURL": "http://demo-videos.qnsdk.com/movies/blur.mp4",
+                "hash": "lv4IaG2JFOK3xsjgklVbMWZ5Zt-k",
+                "fsize": 17816019,
+                "putTime": 15445021458197322,
+                "mimeType": "video/mp4",
+                "type": 0,
+                "endUser": "2"
+            },
+            {
+                "videoURL": "http://demo-videos.qnsdk.com/movies/moon.mp4",
+                "hash": "FgE-32EHUutBp6_2ztW2VQ8gyqPY",
+                "fsize": 2666497,
+                "putTime": 15208336261261425,
+                "mimeType": "video/mp4",
+                "type": 0,
+                "endUser": "3"
+            },
+            {
+                "videoURL": "http://demo-videos.qnsdk.com/movies/qiniu.mp4",
+                "hash": "lhsawSRA9-0L8b0s-cXmojaMhGqn",
+                "fsize": 25538648,
+                "putTime": 15203474482177600,
+                "mimeType": "video/mp4",
+                "type": 0,
+                "endUser": "4"
+            },
+            {
+                "videoURL": "http://demo-videos.qnsdk.com/movies/snowday.mp4",
+                "hash": "lvfTCSpNR3t-hiJd0VqYzzK_sJN3",
+                "fsize": 27058504,
+                "putTime": 15208355944118985,
+                "mimeType": "video/mp4",
+                "type": 0,
+                "endUser": "5"
+            }
+        ]
+    }
+}
